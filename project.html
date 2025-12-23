@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Template</title>
+
+<style>
+html { font-size: 16px; }
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    /* background: linear-gradient(135deg, #2c69cb 0%, #c3cfe2 100%); */
+    background: linear-gradient(90deg, #333 0%, #555 100%);
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+header {
+    background: linear-gradient(90deg, #333 0%, #555 100%);
+    color: white;
+    padding: 1rem;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ecf805, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: rgb(208, 255, 0);
+    margin: 4px 0;
+} 
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li { margin-left: 1rem; }
+
+.nav-links a {
+    color: rgb(208, 255, 0);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #333 0%, #555 100%);
+    flex-direction: column;
+}
+#menu-toggle:checked ~ .mobile-menu {
+    display: flex;
+}
+
+.mobile-menu a {
+    color: rgb(208, 255, 0);
+    text-decoration: none;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.hero {
+    height: 100vh;
+    background: 
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url("https://foyr.com/learn/wp-content/uploads/2019/01/best-interior-design-tips.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color:rgb(233, 233, 40);
+}
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin:5px;
+}
+
+
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+}
+
+#about, 
+#services,#gallery,#contact {
+    color: yellow;
+}
+
+#about h2,
+#services h2 ,#gallery h2,#contact h2,#login h2{
+    color: yellow;
+    text-decoration: underline;
+}
+#about p{
+    color:white;
+}
+
+section {
+    padding: 3rem 2rem;
+}
+
+section:not(.hero) {
+    max-width: 1200px;
+    margin: auto;
+}
+.service {
+  display: flex;      
+  gap: 20px;           
+  flex-wrap: nowrap;   
+  justify-content: center;
+}
+
+.clickable-image {
+  width: 400px;
+  height: 300px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.clickable-image:hover {
+  transform: scale(1.08); 
+  box-shadow: 0 0 15px #ffffff, 0 0 30px #fefefe;
+}
+  
+@media (max-width: 1200px) {
+  .service {
+    flex-wrap: wrap;  
+    justify-content: center;
+  }
+
+  .clickable-image {
+    width: 300px;
+    height: auto;     
+  }
+}
+
+@media (max-width: 768px) {
+  .clickable-image {
+    width: 100%;     
+    height: auto;
+  }
+}
+
+
+
+
+.gallery {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 10px;
+}
+.gallery:hover {
+    transform: scale(1.08); 
+  box-shadow: 0 0 5px #ffffff, 0 0 30px #ffffff;
+}
+
+form {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+
+}
+
+form input, form textarea, form button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+form button {
+    background: rgb(248, 248, 0);
+    border: none;
+    color: rgb(0, 0, 0);
+    border-radius:10px;
+    border-color:black;
+    border-width:5px;
+}
+
+@media (max-width: 768px) {
+    .hamburger { display: block; }
+    .nav-links { display: none; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+
+<div class="logo">Axis Studio</div>
+<input type="checkbox" id="menu-toggle" hidden>
+
+<label class="hamburger" for="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+</label>
+
+<ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#login">Login</a></li>
+</ul>
+
+<div class="mobile-menu">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+    <a href="#login">Login</a>
+</div>
+
+</nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-text">
+        <h1>Axis Studio</h1>
+        <p>Design with direction.</p>
+    </div>
+</section>
+
+
+<section id="about">
+<h2>About Us</h2>
+<p>Axis Studio is a contemporary interior design firm driven by purpose, precision, and creativity. True to our philosophy—“Design with direction”—we believe every space should have a clear vision, a strong identity, and a meaningful flow.
+
+    We specialize in crafting thoughtfully designed interiors that balance aesthetics with functionality. From residential homes to commercial spaces, our approach begins with understanding our clients’ lifestyle, needs, and aspirations. Each project is carefully planned, ensuring that design decisions are intentional, cohesive, and timeless.
+    
+    At Axis Studio, design is more than decoration—it is structure, proportion, and experience. We focus on clean lines, smart layouts, refined materials, and subtle details that elevate everyday living. Our team combines creativity with technical expertise to deliver spaces that are not only visually striking but also practical and comfortable.
+    
+    With a commitment to quality, innovation, and client satisfaction, Axis Studio transforms ideas into spaces that feel confident, balanced, and purposeful.
+    </p>
+</section>
+
+<section id="services">
+    <h2>Services</h2>
+    <div class="service">
+      <img src="https://media.designcafe.com/wp-content/uploads/2020/04/23125905/creative-home-decor-ideas.jpg"
+           alt="Service 1" class="clickable-image" onclick="showDetail('Space Planning & Layout Design')">
+           
+      <img src="https://www.thespruce.com/thmb/3tqzoZ5GT2uQOFNE5__ykQwqN-M=/2500x0/filters:no_upscale():max_bytes(150000):strip_icc()/DesignbyEmilyHenderson_MountainHouseLivingRoom_PhotobySaraLigorria-TrampforEHD_9-79d20b8810c24403b627c6ee543dd538.jpg"
+           alt="Service 2" class="clickable-image" onclick="showDetail('Interior Design & Styling')">
+  
+      <img src="https://media.designcafe.com/wp-content/uploads/2022/07/29185240/industrial-rustic-living-room-in-earthy-tones.jpg"
+           alt="Service 3" class="clickable-image" onclick="showDetail('Project Management & Execution')">
+    </div>
+  </section>
+  
+  <script>
+  function showDetail(detailText) {
+      alert(detailText);
+  }
+  </script>
+
+<section id="gallery">
+<h2>Gallery</h2>
+<div class="gallery">
+<img src="https://cpimg.tistatic.com/06377870/b/4/Living-Room-Interior-Decoration-Organizers-Services.jpg">
+<img src="https://artfasad.com/wp-content/uploads/2023/12/latest-bedroom-interior-design-13.jpg.webp">
+<img src="https://edwardgeorgelondon.com/wp-content/uploads/content/11-small-home-interior-design-ideas-3.jpg">
+<img src="https://i.pinimg.com/736x/f3/4a/e3/f34ae3a9f2f5473b76aa1bd2ea5910c7.jpg">
+<img src="https://www.shutterstock.com/image-illustration/poster-mockup-modern-living-room-600nw-2630038167.jpg" >
+<img src="https://www.shutterstock.com/image-illustration/frame-mockup-iso-paper-size-600nw-2578941893.jpg" >
+<img src="https://i.pinimg.com/1200x/8b/73/56/8b735651fe2f4bc57777378e6ecda842.jpg" >
+<img src="https://www.shutterstock.com/image-illustration/frame-mockup-iso-paper-size-600nw-2519812669.jpg" >
+</div>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<form>
+<input type="text" placeholder="Name">
+<input type="email" placeholder="Email">
+<textarea placeholder="Message"></textarea>
+<button>Send</button>
+</form>
+</section>
+
+<section id="login">
+<h2>Login</h2>
+<form>
+<label>Email</label>
+<input type="email" placeholder="Enter email" required>
+
+<label>Password</label>
+<input type="password" placeholder="Enter password" required>
+
+<div style="display:flex; justify-content:space-between;">
+<label><input type="checkbox"> Remember me</label>
+<a href="#">Forgot password?</a>
+</div>
+
+<button>Login</button>
+</form>
+</section>
+
+<footer style="text-align:center; padding:1rem; background:#333; color:#ecf805;">
+&copy; designed by Axis studio
+</footer>
+
+</body>
+</html>
